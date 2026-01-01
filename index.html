@@ -22,7 +22,13 @@
 <link rel="manifest" href="/antiprocastss/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/antiprocastss/registerSW.js"></script></head>
 
 <body>
-    <div id="root"></div>
+    <div id="root"></div>
+    <script>
+        window.addEventListener('error', function (e) {
+            document.body.innerHTML += '<div style="color:red; padding:20px; background:black; z-index:9999; position:fixed; top:0; left:0; width:100%; height:100%">' +
+                '<h1>Error Fatal:</h1><p>' + e.message + '</p><p>' + e.filename + ':' + e.lineno + '</p></div>';
+        });
+    </script>
 
     <!-- Fallback de seguridad por si React no carga -->
     <noscript>Necesitas activar JavaScript para usar AntiProcast.</noscript>
