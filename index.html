@@ -17,12 +17,21 @@
     <link rel="icon" type="image/svg+xml" href="./logo_new.svg">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <script type="module" crossorigin src="./assets/index-OXfbG3Vp.js"></script>
+  <script type="module" crossorigin src="./assets/index-B7eB-3WC.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-uPQD3IYO.css">
 <link rel="manifest" href="./manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
 
 <body>
     <div id="root"></div>
+    <script>
+        // Global PWA Install Prompt Capture
+        window.deferredPrompt = null;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            window.deferredPrompt = e;
+            console.log('PWA Install Prompt captured!');
+        });
+    </script>
     <script>
         window.addEventListener('error', function (e) {
             document.body.innerHTML += '<div style="color:red; padding:20px; background:black; z-index:9999; position:fixed; top:0; left:0; width:100%; height:100%">' +
