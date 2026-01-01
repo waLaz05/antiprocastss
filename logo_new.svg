@@ -1,0 +1,16 @@
+<svg width="512" height="512" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Outer Geometric Shape - Octagon/Circle Hybrid -->
+    <path 
+        d="M50 5 L85 20 L95 50 L85 80 L50 95 L15 80 L5 50 L15 20 Z" 
+        fill="white"
+    />
+    
+    <!-- Inner Symbol - Abstract 'A' / Upward Arrow / Peak -->
+    <path 
+        d="M50 25 L75 75 H25 L50 25 Z" 
+        fill="black"
+    />
+    
+    <!-- Center Cutout - Focus Point -->
+    <circle cx="50" cy="65" r="5" fill="white" />
+</svg>
