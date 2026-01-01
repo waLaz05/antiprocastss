@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-dark: #030712;
+  --glass-bg: rgba(17, 24, 39, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --font-body: 'Outfit', sans-serif;
+  --bg-primary: #0f172a;
+  --accent-purple: #8b5cf6;
+  --accent-blue: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  min-height: 100vh;
+  /* Fondo Animado "Breathing" */
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.08), transparent 30%),
+    radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.08), transparent 30%);
+  background-size: 150% 150%;
+  animation: bg-pulse 15s ease-in-out infinite alternate;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes bg-pulse {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glassmorphism Ultra */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.card {
+  border-radius: 20px;
+  padding: 1.5rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Typography & Headers */
+h1,
+h2,
+h3 {
+  font-family: var(--font-body);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  background: linear-gradient(to right, #ffffff, #cbd5e1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: white;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+/* Modern Inputs */
+input,
+textarea,
+select {
+  background: rgba(3, 7, 18, 0.4);
+  border: 1px solid var(--glass-border);
+  color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1rem;
+  transition: all 0.2s;
+  width: 100%;
+  font-family: var(--font-body);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  background: rgba(3, 7, 18, 0.6);
+}
+
+/* Neon Buttons */
+.btn-primary {
+  background: var(--accent-gradient);
+  background-size: 200% auto;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  font-family: var(--font-body);
+}
+
+.btn-primary:hover {
+  background-position: right center;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Layout Desktop Default */
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.mobile-nav {
+  display: none;
+  /* Oculto por defecto en desktop */
+}
+
+.mobile-header {
+  display: none;
+  /* Oculto por defecto en desktop */
+}
+
+.mobile-spacer {
+  display: none;
+}
+
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+/* Responsive Mobile Styles */
+@media (max-width: 768px) {
+  .layout {
+    display: block;
+    /* Stack layout */
+  }
+
+  .desktop-nav {
+    display: none;
+    /* Eliminar sidebar en móvil */
+  }
+
+  .mobile-header {
+    display: flex;
+    /* Mostrar barra superior en móvil */
+  }
+
+  .mobile-nav {
+    display: block;
+    /* Mostrar barra inferior */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  .mobile-spacer {
+    display: block;
+    height: 80px;
+    /* Spacer para que el contenido no quede debajo del nav */
+  }
+
+  .page-container {
+    padding: 1.5rem;
+    padding-top: 5rem;
+    /* Espacio para el header superior */
+    padding-bottom: 90px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .glass {
+    backdrop-filter: blur(12px);
+    /* Menos blur para rendimiento móvil */
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
