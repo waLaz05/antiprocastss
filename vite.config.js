@@ -29,4 +29,8 @@ export default defineConfig({
             }
         })
     ],
+    base: '/antiprocastss/',
+    server: {
+        host: true
+    }
 })
